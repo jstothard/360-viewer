@@ -1,22 +1,45 @@
-import React from 'react';
-import ButtonAppBar from './components/ButtonAppBar'
-import { makeStyles } from '@material-ui/core/styles';
+import React, { Component } from "react";
+import ButtonAppBar from "./components/ButtonAppBar";
+import { withStyles } from "@material-ui/core/styles";
+import Upload from "./components/Upload";
 
-const useStyles = makeStyles(theme => ({
+const styles = theme => ({
   root: {
-    display: 'flex',
+    display: "flex"
   },
-}));
+  appBarSpacer: theme.mixins.toolbar,
+  content: {
+    flexGrow: 1,
+    height: "100vh",
+    overflow: "auto",
+    padding: theme.spacing(8, 0, 6)
+  }
+});
 
-function App() {
+class App extends Component {
+  state = {
+    files: []
+  };
 
-  const classes = useStyles();
+  handleChange = files => {
+    this.setState({
+      files
+    });
+  };
 
-  return (
-    <div className={classes.root}>
-      <ButtonAppBar />
-    </div>
-  );
+  render() {
+    const { classes } = this.props;
+    return (
+      <div className={classes.root}>
+        <ButtonAppBar />
+        <main className={classes.content}>
+          <div className={classes.appBarSpacer}>
+            <Upload handleChange={this.handleChange} />
+          </div>
+        </main>
+      </div>
+    );
+  }
 }
 
-export default App;
+export default withStyles(styles)(App);
