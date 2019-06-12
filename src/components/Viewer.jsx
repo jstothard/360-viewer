@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, makeStyles, Container } from '@material-ui/core';
-import { Pannellum } from "pannellum-react";
+import { Pannellum } from 'pannellum-react';
 import PT from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
@@ -33,7 +33,17 @@ function Viewer(props) {
                 This is the viewer
         </Typography>
         {
-          files.map(file => <img src={URL.createObjectURL(file)} alt="Logo" />)
+          files.map(file => (
+            <Pannellum
+              width="100%"
+              height="500px"
+              image={URL.createObjectURL(file)}
+              pitch={10}
+              yaw={180}
+              hfov={110}
+              autoLoad
+            />
+          ))
         }
       </Container>
     </div>
