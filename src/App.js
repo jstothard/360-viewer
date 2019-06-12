@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import ButtonAppBar from "./components/ButtonAppBar";
 import { withStyles } from "@material-ui/core/styles";
 import Upload from "./components/Upload";
+import Viewer from "./components/Viewer";
+import { Router } from "@reach/router"
+
 
 const styles = theme => ({
   root: {
@@ -29,12 +32,16 @@ class App extends Component {
 
   render() {
     const { classes } = this.props;
+    const { files } = this.state;
     return (
       <div className={classes.root}>
         <ButtonAppBar />
         <main className={classes.content}>
           <div className={classes.appBarSpacer}>
-            <Upload handleChange={this.handleChange} />
+          <Router>
+          <Upload handleChange={this.handleChange} default />
+          <Viewer files={files} path='/viewer'/>
+            </Router>
           </div>
         </main>
       </div>

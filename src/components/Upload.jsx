@@ -3,8 +3,8 @@ import PT from 'prop-types';
 import { Typography, makeStyles, Container } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { Link } from '@reach/router';
 import Dropzone from './Dropzone';
-
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -25,6 +25,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const ViewerLink = React.forwardRef((props, ref) => (
+  <Link innerRef={ref} to="/viewer" {...props} />
+));
+
 function Upload(props) {
   const classes = useStyles();
   const { handleChange } = props;
@@ -35,7 +39,7 @@ function Upload(props) {
         Upload Media
       </Typography>
       <Dropzone handleChange={handleChange} />
-      <Button variant="contained" color="primary" className={classes.button}>
+      <Button variant="contained" color="primary" className={classes.button} component={ViewerLink}>
           Upload
         <CloudUploadIcon className={classes.rightIcon} />
       </Button>
