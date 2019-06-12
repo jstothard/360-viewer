@@ -25,12 +25,16 @@ const useStyles = makeStyles(theme => ({
 function Viewer(props) {
   const classes = useStyles();
   const { files } = props;
+
   return (
     <div>
       <Container maxWidth="lg" className={classes.container}>
         <Typography variant="h6" color="inherit">
                 This is the viewer
         </Typography>
+        {
+          files.map(file => <img src={URL.createObjectURL(file)} alt="Logo" />)
+        }
       </Container>
     </div>
   );
