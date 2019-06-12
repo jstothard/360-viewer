@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, makeStyles, Container } from '@material-ui/core';
-// import { Pannellum } from "pannellum-react";
+import { Pannellum } from "pannellum-react";
 import PT from 'prop-types';
 
 const useStyles = makeStyles(theme => ({
