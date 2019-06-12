@@ -1,6 +1,8 @@
 import React from 'react';
 import PT from 'prop-types';
 import { Typography, makeStyles, Container } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import Dropzone from './Dropzone';
 
 
@@ -8,6 +10,18 @@ const useStyles = makeStyles(theme => ({
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
+  },
+  button: {
+    margin: theme.spacing(1),
+  },
+  leftIcon: {
+    marginRight: theme.spacing(1),
+  },
+  rightIcon: {
+    marginLeft: theme.spacing(1),
+  },
+  iconSmall: {
+    fontSize: 20,
   },
 }));
 
@@ -21,6 +35,10 @@ function Upload(props) {
         Upload Media
       </Typography>
       <Dropzone handleChange={handleChange} />
+      <Button variant="contained" color="primary" className={classes.button}>
+          Upload
+        <CloudUploadIcon className={classes.rightIcon} />
+      </Button>
     </Container>
   );
 }
