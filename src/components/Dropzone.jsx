@@ -1,14 +1,14 @@
-import React from "react";
-import { DropzoneArea } from "material-ui-dropzone";
-import PT from "prop-types";
+import React from 'react';
+import { DropzoneArea } from 'material-ui-dropzone';
+import PT from 'prop-types';
 
 function Dropzone(props) {
   const { handleChange } = props;
   return (
     <DropzoneArea
-      onChange={handleChange.bind(this)}
-      acceptedFiles={["image/jpeg", "image/jpg", "image/png", "image/bmp"]}
-      showPreviews={true}
+      onChange={handleChange}
+      acceptedFiles={['image/jpeg', 'image/jpg', 'image/png', 'image/bmp']}
+      showPreviews
       showPreviewsInDropzone={false}
       maxFileSize={100000000}
       filesLimit={10}
@@ -19,5 +19,5 @@ function Dropzone(props) {
 export default Dropzone;
 
 Dropzone.propTypes = {
-  handleChange: PT.func
+  handleChange: PT.func.isRequired,
 };

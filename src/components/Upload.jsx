@@ -1,13 +1,14 @@
-import React from "react";
-import PT from "prop-types";
-import { Typography, makeStyles, Container } from "@material-ui/core";
-import Dropzone from "./Dropzone";
+import React from 'react';
+import PT from 'prop-types';
+import { Typography, makeStyles, Container } from '@material-ui/core';
+import Dropzone from './Dropzone';
+
 
 const useStyles = makeStyles(theme => ({
   container: {
     paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4)
-  }
+    paddingBottom: theme.spacing(4),
+  },
 }));
 
 function Upload(props) {
@@ -19,13 +20,13 @@ function Upload(props) {
       <Typography variant="h6" color="inherit">
         Upload Media
       </Typography>
-      <Dropzone handleChange={handleChange.bind(this)} />
+      <Dropzone handleChange={handleChange} />
     </Container>
   );
 }
 
 Upload.propTypes = {
-  handleChange: PT.func
+  handleChange: PT.func.isRequired,
 };
 
 export default Upload;

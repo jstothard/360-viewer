@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1
+    flexGrow: 1,
   },
 }));
 
@@ -26,15 +26,15 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-      <AppBar position="absolute" className={classes.appBar}>
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
+    <AppBar position="absolute" className={classes.appBar}>
+      <Toolbar>
+        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" className={classes.title}>
             360 Media Viewer
-          </Typography>
-        </Toolbar>
-      </AppBar>
+        </Typography>
+      </Toolbar>
+    </AppBar>
   );
 }
