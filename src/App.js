@@ -1,20 +1,19 @@
-import React, { Component } from "react";
-import ButtonAppBar from "./components/ButtonAppBar";
-import { withStyles } from "@material-ui/core/styles";
-import Upload from "./components/Upload";
-import Viewer from "./components/Viewer";
-import { Router } from "@reach/router"
-
+import React, { Component } from 'react';
+import ButtonAppBar from './components/ButtonAppBar';
+import { withStyles } from '@material-ui/core/styles';
+import Upload from './components/Upload';
+import Viewer from './components/Viewer';
+import { Router } from '@reach/router';
 
 const styles = theme => ({
   root: {
-    display: "flex"
+    display: 'flex'
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: "100vh",
-    overflow: "auto",
+    height: '100vh',
+    overflow: 'auto',
     padding: theme.spacing(8, 0, 6)
   }
 });
@@ -25,6 +24,7 @@ class App extends Component {
   };
 
   handleChange = files => {
+    console.dir(files);
     this.setState({
       files
     });
@@ -38,9 +38,9 @@ class App extends Component {
         <ButtonAppBar />
         <main className={classes.content}>
           <div className={classes.appBarSpacer}>
-          <Router>
-          <Upload handleChange={this.handleChange} default />
-          <Viewer files={files} path='/viewer'/>
+            <Router>
+              <Upload handleChange={this.handleChange} default />
+              <Viewer files={files} path="/viewer" />
             </Router>
           </div>
         </main>
