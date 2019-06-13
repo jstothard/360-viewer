@@ -30,7 +30,7 @@ function Viewer(props) {
     <Container fixed>
       <Grid container justify="center" alignItems="center" spacing={3}>
         {files.map(file => (
-          <Grid item xs={12}>
+          <Grid item xs={12} key={URL.createObjectURL(file)}>
             <Card className={classes.card}>
               <CardHeader
                 title={file.name}
