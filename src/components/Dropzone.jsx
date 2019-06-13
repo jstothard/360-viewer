@@ -19,5 +19,5 @@ function Dropzone(props) {
 export default Dropzone;
 
 Dropzone.propTypes = {
-  handleChange: PT.func.isRequired,
+  handleChange: PT.func.isRequired
 };
