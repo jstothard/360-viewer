@@ -7,12 +7,13 @@ import { Router } from '@reach/router';
 
 const styles = theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    flexGrow: 1
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
+    height: '100%',
     overflow: 'auto',
     padding: theme.spacing(8, 0, 6)
   }

@@ -11,28 +11,28 @@ const useStyles = makeStyles(theme => ({
     zIndex: theme.zIndex.drawer + 1,
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
+      duration: theme.transitions.duration.leavingScreen
+    })
   },
   menuButton: {
-    marginRight: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
   title: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 }));
 
 export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <AppBar position="absolute" className={classes.appBar}>
+    <AppBar position="fixed" className={classes.appBar}>
       <Toolbar>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="Menu">
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" className={classes.title}>
-            360 Media Viewer
+          360 Media Viewer
         </Typography>
       </Toolbar>
     </AppBar>
