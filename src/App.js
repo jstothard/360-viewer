@@ -24,7 +24,23 @@ class App extends Component {
   };
 
   handleChange = files => {
-    console.dir(files);
+    this.setState({
+      files
+    });
+  };
+
+  updateRow = (row, index) => {
+    const { files } = this.state;
+    const newFile = new File([files[index]], row.name);
+    files.splice(index, 1, newFile);
+    this.setState({
+      files
+    });
+  };
+
+  removeRow = index => {
+    const { files } = this.state;
+    files.splice(index, 1);
     this.setState({
       files
     });
@@ -39,7 +55,13 @@ class App extends Component {
         <main className={classes.content}>
           <div className={classes.appBarSpacer}>
             <Router>
-              <Upload handleChange={this.handleChange} default />
+              <Upload
+                handleChange={this.handleChange}
+                updateRow={this.updateRow}
+                removeRow={this.removeRow}
+                files={files}
+                default
+              />
               <Viewer files={files} path="/viewer" />
             </Router>
           </div>
