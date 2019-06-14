@@ -1,6 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
-import { Typography, makeStyles, Container } from '@material-ui/core';
+import { makeStyles, Container, Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { Link } from '@reach/router';
@@ -36,15 +36,25 @@ function Upload(props) {
 
   return (
     <Container maxWidth="lg" className={classes.container}>
-      <Typography variant="h6" color="inherit">
-        Upload Media
-      </Typography>
-      <Dropzone handleChange={handleChange} />
-      <UploadTable files={files} updateRow={updateRow} removeRow={removeRow} />
-      <Button variant="contained" color="primary" className={classes.button} component={ViewerLink}>
-        Upload
-        <CloudUploadIcon className={classes.rightIcon} />
-      </Button>
+      <Grid container justify="center" alignItems="center" spacing={3}>
+        <Grid item xs={12}>
+          <Dropzone handleChange={handleChange} />
+        </Grid>
+        <Grid item xs={12}>
+          <UploadTable files={files} updateRow={updateRow} removeRow={removeRow} />
+        </Grid>
+        <Grid item xs={12}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            component={ViewerLink}
+          >
+            Upload
+            <CloudUploadIcon className={classes.rightIcon} />
+          </Button>
+        </Grid>
+      </Grid>
     </Container>
   );
 }
