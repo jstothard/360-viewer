@@ -7,12 +7,13 @@ import { Router } from '@reach/router';
 
 const styles = theme => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    flexGrow: 1
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
-    height: '100vh',
+    height: '100%',
     overflow: 'auto',
     padding: theme.spacing(8, 0, 6)
   }
@@ -51,6 +52,7 @@ class App extends Component {
     const { files } = this.state;
     return (
       <div className={classes.root}>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <ButtonAppBar />
         <main className={classes.content}>
           <div className={classes.appBarSpacer}>
