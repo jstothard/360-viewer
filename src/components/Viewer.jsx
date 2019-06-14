@@ -28,12 +28,15 @@ const styles = theme => ({
 
 class Viewer extends Component {
   constructor(props) {
+    const { files } = props;
     super(props);
-    this.ref = React.createRef();
+    this.references = Array(files.length)
+      .fill(0)
+      .map(() => React.createRef());
   }
 
-  savePanoImage(name) {
-    const viewer = this.ref.current.getViewer();
+  savePanoImage = (name, ref) => {
+    const viewer = ref.current.getViewer();
     const img = viewer
       .getRenderer()
       .render(
@@ -43,14 +46,14 @@ class Viewer extends Component {
         { returnImage: true },
       );
     saveAs(img, name);
-  }
+  };
 
   render() {
     const { classes, files } = this.props;
     return (
       <Container fixed>
         <Grid container justify="center" alignItems="center" spacing={3}>
-          {files.map(file => (
+          {files.map((file, index) => (
             <Grid item xs={12} key={URL.createObjectURL(file)}>
               <Card className={classes.card}>
                 <CardHeader
@@ -58,13 +61,16 @@ class Viewer extends Component {
                   subheader={<Moment format="D/M/YYYY">{file.lastModified}</Moment>}
                   action={
                     // eslint-disable-next-line react/jsx-wrap-multilines
-                    <IconButton aria-label="snapshot" onClick={() => this.savePanoImage(file.name)}>
+                    <IconButton
+                      aria-label="snapshot"
+                      onClick={() => this.savePanoImage(file.name, this.references[index])}
+                    >
                       <CameraAlt />
                     </IconButton>
                   }
                 />
                 <Pannellum
-                  ref={this.ref}
+                  ref={this.references[index]}
                   width="100%"
                   height="500px"
                   image={URL.createObjectURL(file)}
