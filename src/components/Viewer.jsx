@@ -5,24 +5,25 @@ import { Pannellum } from 'pannellum-react';
 import PT from 'prop-types';
 import Moment from 'react-moment';
 import CameraAlt from '@material-ui/icons/CameraAlt';
+import { saveAs } from 'file-saver';
 
 const styles = theme => ({
   container: {
     paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4)
+    paddingBottom: theme.spacing(4),
   },
   button: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   leftIcon: {
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
   },
   rightIcon: {
-    marginLeft: theme.spacing(1)
+    marginLeft: theme.spacing(1),
   },
   iconSmall: {
-    fontSize: 20
-  }
+    fontSize: 20,
+  },
 });
 
 class Viewer extends Component {
@@ -30,12 +31,8 @@ class Viewer extends Component {
     super(props);
     this.ref = React.createRef();
   }
-  state = {
-    viewer: null,
-    ref: null
-  };
 
-  savePanoImage() {
+  savePanoImage(name) {
     const viewer = this.ref.current.getViewer();
     const img = viewer
       .getRenderer()
@@ -43,12 +40,9 @@ class Viewer extends Component {
         (viewer.getPitch() / 180) * Math.PI,
         (viewer.getYaw() / 180) * Math.PI,
         (viewer.getHfov() / 180) * Math.PI,
-        { returnImage: true }
+        { returnImage: true },
       );
-    const link = document.createElement('a');
-    link.download = 'my-image-name.jpeg';
-    link.href = img;
-    link.click();
+    saveAs(img, name);
   }
 
   render() {
@@ -63,10 +57,8 @@ class Viewer extends Component {
                   title={file.name}
                   subheader={<Moment format="D/M/YYYY">{file.lastModified}</Moment>}
                   action={
-                    <IconButton
-                      aria-label="snapshot"
-                      onClick={() => console.log(this.savePanoImage())}
-                    >
+                    // eslint-disable-next-line react/jsx-wrap-multilines
+                    <IconButton aria-label="snapshot" onClick={() => this.savePanoImage(file.name)}>
                       <CameraAlt />
                     </IconButton>
                   }
@@ -92,7 +84,9 @@ class Viewer extends Component {
 }
 
 Viewer.propTypes = {
-  files: PT.arrayOf(PT.object).isRequired
+  files: PT.arrayOf(PT.object).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  classes: PT.object.isRequired,
 };
 
 export default withStyles(styles)(Viewer);
