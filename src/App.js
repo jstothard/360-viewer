@@ -8,25 +8,25 @@ import { Router } from '@reach/router';
 const styles = theme => ({
   root: {
     display: 'flex',
-    flexGrow: 1
+    flexGrow: 1,
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     height: '100%',
     overflow: 'auto',
-    padding: theme.spacing(8, 0, 6)
-  }
+    padding: theme.spacing(8, 0, 6),
+  },
 });
 
 class App extends Component {
   state = {
-    files: []
+    files: [],
   };
 
   handleChange = files => {
     this.setState({
-      files
+      files,
     });
   };
 
@@ -35,7 +35,7 @@ class App extends Component {
     const newFile = new File([files[index]], row.name);
     files.splice(index, 1, newFile);
     this.setState({
-      files
+      files,
     });
   };
 
@@ -43,7 +43,7 @@ class App extends Component {
     const { files } = this.state;
     files.splice(index, 1);
     this.setState({
-      files
+      files,
     });
   };
 
