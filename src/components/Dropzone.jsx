@@ -2,12 +2,11 @@ import React from 'react';
 import { DropzoneArea } from 'material-ui-dropzone';
 import PT from 'prop-types';
 import { Card, CardHeader, makeStyles } from '@material-ui/core';
-import '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
   paragraph: {
-    ...theme.typography.body1
-  }
+    ...theme.typography.body1,
+  },
 }));
 
 function Dropzone(props) {
@@ -32,5 +31,5 @@ function Dropzone(props) {
 export default Dropzone;
 
 Dropzone.propTypes = {
-  handleChange: PT.func.isRequired
+  handleChange: PT.func.isRequired,
 };

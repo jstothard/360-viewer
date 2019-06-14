@@ -1,22 +1,20 @@
 module.exports = {
+  parser: 'babel-eslint',
+  parserOptions: {
+    sourceType: 'module',
+    allowImportExportEverywhere: false,
+    codeFrame: false,
+  },
+  extends: ['airbnb', 'prettier'],
   env: {
     browser: true,
-    es6: true
+    jest: true,
   },
-  extends: ["airbnb", "prettier"],
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
-  },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 2018,
-    sourceType: "module"
-  },
-  plugins: ["react", "prettier"],
   rules: {
-    "prettier/prettier": ["error"]
-  }
+    'max-len': ['error', { code: 100 }],
+    'prefer-promise-reject-errors': ['off'],
+    'react/jsx-filename-extension': ['off'],
+    'react/prop-types': ['warn'],
+    'no-return-assign': ['off'],
+  },
 };
