@@ -52,6 +52,7 @@ class App extends Component {
     const { files } = this.state;
     return (
       <div className={classes.root}>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
         <ButtonAppBar />
         <main className={classes.content}>
           <div className={classes.appBarSpacer}>

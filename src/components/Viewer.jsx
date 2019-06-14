@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, makeStyles, Container, Card, CardHeader, Grid } from '@material-ui/core';
+import { makeStyles, Container, Card, CardHeader, Grid } from '@material-ui/core';
 import { Pannellum } from 'pannellum-react';
 import PT from 'prop-types';
 import Moment from 'react-moment';
