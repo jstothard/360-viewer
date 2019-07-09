@@ -1,7 +1,7 @@
 {
   "name": "360-viewer",
   "version": "0.1.0",
-  "homepage": "https://gitlab.arup.com/nwy-devops/360-viewer/",
+  "homepage": "http://jstothard.github.io/360-viewer",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.0.0-rc.0",
@@ -22,7 +22,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -o deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
