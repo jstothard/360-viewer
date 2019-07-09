@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "567bb47477c6ecdf5262519897fa46b3",
+    "revision": "1c2e77a4b5495b4795808ddb8ef7b320",
     "url": "/360-viewer/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/360-viewer/static/js/2.870bce39.chunk.js"
   },
   {
-    "revision": "ceecac849200dcd5869d",
-    "url": "/360-viewer/static/js/main.b07cb711.chunk.js"
+    "revision": "5d36f186a548e7bc7ac7",
+    "url": "/360-viewer/static/js/main.80d43681.chunk.js"
   },
   {
     "revision": "4f07809d15e27d30ed55",
